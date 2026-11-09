@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein NMG Projekt</title>
+	<style>
+	body{
+	background-color:#111;
+	font-family:"Comic Sans MS";
+	color:#fff;
+	text-align:center;
+	}
+h1{
+color:#969bff;
+padding:50px;
+}
+p{
+color:#ffffff;
+padding:20px;
+}
+
+button{
+background-color:#b0ffaf;
+color:#da0001;
+	border: none;
+	border-radius:50px;
+ cursor: pointer;  
+font-size:50px;
+
+}
+
+
+
+</style>
+</head>
+<body>
+<h1>Hallo hier ist noch mal der text vom Plakat</h1>
+<p id="plakattext">Licht Im Weltall.<br>  
+Im Weltall erscheint der Himmel schwarz, well es dort nur sehr wenlge Tellchen glbt, die das Licht streuen.
+Ein Beipiel: Du schaltest im All eine Lampe an. Wenn du direkt in dle Lampe schaust, siehst du sie hell leuchten. Wenn du von der Selte auf den Lichtetrahl schauet, kannst du Ihn normalerweise nicht sehen, (Siehe Tabello.)
+Die Sonne erscheint im Weltall ale heller Ball vor einem schwarzen Hintergrund.<br>
+Warum Ist das Weltall schwarz?<br>
+Das Weltall enthält nur sehr wenige Tellchen, dle das Licht streuen. Deshalb wird das Sonnenlicht nicht wie in der Erdatmosphäre In viele Richtungen vertellt.So ein Raum nennt man auch ein Vakuum.Der Himmel erscheint deshalb schwarz. Ein Lichtstrahl Ist von der Seite normalerweise nicht sichtbar, solange kein Licht in unsere Augen gestreut wird.<br>
+Das Olberssche Paradoxon<br>
+Das Olberssche Paradoxon stellt die Frage :
+Warum Ist das All dunkel obwohl es so viele Sterne geben könnte ?
+Im All gibt es tatsächlich sehr viele Sterne aber das Licht vieler Sterne ist noch nicht Bel uns angekommen weshalb wir ale nicht sehen und das Licht mancher Sterne wird auf dem Weg zu uns schwächer durch die Rotverschiebung so das sie unsichtbar bel uns ankommt.</p>
+<button onclick="zeigeNachricht()">Quiz starten</button>
+<div id="nachricht"></div>
+<script>
+let punkte = 0;
+let frage= 1;
+function zeigeNachricht() {
+	document.getElementById("plakattext").style.display = "none";
+	document.querySelector("body > button").style.display = "none";
+document.getElementById("nachricht").innerHTML =`
+<h2>was für ein Raum ist das All?</h2>
+    <button onclick="pruefen('A')">A: Vakuum </button>
+
+        <br><br>
+
+        <button onclick="pruefen('B')">B: Vokaan </button>
+
+        <br><br>
+
+        <button onclick="pruefen('C')">C: Vakun </button>
+
+        <br><br>
+
+        <button onclick="pruefen('D')">D: Vakoom </button>
+
+    `;
+
+}
+
+function zeigeFrage2() {
+	document.getElementById("nachricht").innerHTML = `
+
+<h2>Ist das All vollkommen leer?</h2>
+
+<button onclick="pruefen('A')">A: Ja, es enthält nichts.</button>
+
+<br><br>
+
+<button onclick="pruefen('B')">B: Nein, es enthält auch Gas, Staub und Teilchen.</button>
+
+<br><br>
+
+<button onclick="pruefen('C')">C: Ja, aber es gibt Sterne.</button>
+
+<br><br>
+
+<button onclick="pruefen('D')">D: Nein, weil überall Luft ist.</button>
+
+`;
+
+}
+function zeigeFrage3() {
+	document.getElementById("nachricht").innerHTML = `
+
+<h2>Wodurch wird das Licht schwächer?</h2>
+
+<button onclick="pruefen('A')">A:Gelbverschiebug</button>
+
+<br><br>
+
+<button onclick="pruefen('B')">B: Grünverschiebung </button>
+
+<br><br>
+
+<button onclick="pruefen('C')">C: Blauverschiebung </button>
+
+<br><br>
+
+<button onclick="pruefen('D')">D: Rotverschiebung .</button>
+
+`;
+
+}
+function zeigeFrage4() {
+    document.getElementById("nachricht").innerHTML = `
+    <h2>Das Olberssche Paradoxon stellt die Frage:
+    Warum ist es im All hell, obwohl es keine Sterne gibt?</h2>
+
+    <button onclick="pruefen('A')">A: Wahr</button>
+    <button onclick="pruefen('B')">B: Falsch</button>
+    `;
+}
+
+    
+
+function pruefen(antwort) {
+
+    if (frage === 1) {
+        if (antwort === 'A') {
+            document.getElementById("nachricht").innerHTML = "Das ist richtig!";
+            punkte = punkte + 1;
+        } else {
+            document.getElementById("nachricht").innerHTML = "Schade, daneben!";
+        }
+
+        frage = 2;
+        setTimeout(zeigeFrage2, 2000);
+    }
+
+    else if (frage === 2) {
+        if (antwort === 'B') {
+            document.getElementById("nachricht").innerHTML = "Das ist richtig!";
+            punkte = punkte + 1;
+        } else {
+            document.getElementById("nachricht").innerHTML = "Schade, daneben!";
+        }
+
+        frage = 3;
+        setTimeout(zeigeFrage3, 2000);
+    }
+
+    else if (frage === 3) {
+        if (antwort === 'D') {
+            document.getElementById("nachricht").innerHTML = "Das ist richtig!";
+            punkte = punkte + 1;
+        } else {
+            document.getElementById("nachricht").innerHTML = "Schade, daneben!";
+        }
+
+        frage = 4;
+        setTimeout(zeigeFrage4, 2000);
+    }
+
+    else if (frage === 4) {
+        if (antwort === 'B') {
+            document.getElementById("nachricht").innerHTML = "Das ist richtig!";
+            punkte = punkte + 1;
+        } else {
+            document.getElementById("nachricht").innerHTML = "Schade, daneben!";
+        }
+
+        setTimeout(() => {
+            document.getElementById("nachricht").innerHTML =
+                `Deine Punktzahl: ${punkte}`;
+
+            document.getElementById("nachricht").innerHTML +=
+                '<br><br><button onclick="neuStarten()">Noch einmal spielen</button>';
+        }, 2000);
+    }
+}
+function neuStarten() {
+    punkte = 0;
+    frage = 1;
+    zeigeNachricht();
+
+}
+
+</script>
+</body>
+</html>
